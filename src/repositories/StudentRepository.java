@@ -38,4 +38,8 @@ public class StudentRepository {
         return (Student) list.stream().filter(s -> s.getId().equals(id));
     }
 
+    public Long generateId(){
+        return list.size() + 1L;
+    }
+
 }

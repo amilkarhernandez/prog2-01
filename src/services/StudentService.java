@@ -21,6 +21,15 @@ public class StudentService {
     }
 
     public void listAll(){
+
+        try {
+            int data = 0/0;
+        } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
+        }finally {
+            System.out.println("Ojo Entro por la Excepcion.");
+        }
+
         studentRepository.listAllStudent();
     }
 

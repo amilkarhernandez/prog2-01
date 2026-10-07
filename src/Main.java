@@ -8,9 +8,51 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         StudentService studentService = new StudentService();
 
-        Student studentEmpty = addStudent(sc);
+        int option;
 
-        studentService.create(studentEmpty);
+        do {
+            System.out.println("\n===== MENÚ ESTUDIANTES =====");
+            System.out.println("1. Registrar estudiante");
+            System.out.println("2. Listar todos los estudiantes");
+            System.out.println("3. Eliminar estudiante por código");
+            System.out.println("4. Calcular promedio de notas");
+            System.out.println("0. Salir");
+            System.out.print("Seleccione una opción: ");
+            option = sc.nextInt();
+            sc.nextLine();
+
+            switch (option) {
+                case 1:
+                    registerStudents(sc, studentService);
+                    break;
+
+                case 2:
+                    studentService.listAll();
+                    break;
+
+                case 3:
+
+                    break;
+
+                case 4:
+
+                    break;
+
+                case 0:
+                    System.out.println("¡Hasta luego!");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida. Intente de nuevo.");
+            }
+
+        } while (option != 0);
+
+        sc.close();
+
+
+        /*
+
 
         studentService.listAll();
         System.out.println("----------->-------------");
@@ -20,6 +62,13 @@ public class Main {
         Student s = studentService.findOne(id);
         System.out.println("Id: "+  s.getId());
         System.out.println("Nombre:" + s.getName());
+
+         */
+    }
+
+    private static void registerStudents(Scanner sc, StudentService service){
+        Student studentEmpty = addStudent(sc);
+        service.create(studentEmpty);
     }
 
     private static Student addStudent(Scanner sc){
